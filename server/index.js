@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001; // Change from 5000 to 5001
 
 require('dotenv').config(); // Allow to call environment variables right inside node application
 
@@ -17,6 +17,14 @@ app.get('/', (req, res) => {
 });
 
 app.use("/auth", require("./routes/auth")); // New added
+
+// Webhook route
+app.post('/webhook', (req, res) => {
+    // Handle the webhook request
+    console.log('Webhook received:', req.body);
+    // Process the webhook data
+    res.status(200).send('Webhook received');
+});
 
 // Start server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
