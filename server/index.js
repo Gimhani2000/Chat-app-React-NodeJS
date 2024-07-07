@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 app.use("/auth", require("./routes/auth")); // New added
 
 // Webhook route
-app.post('/webhook', (req, res) => {
+app.get('/webhook', (req, res) => {
     // Handle the webhook request
     console.log('Webhook received:', req.body);
     // Process the webhook data
