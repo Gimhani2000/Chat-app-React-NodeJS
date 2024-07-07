@@ -35,7 +35,7 @@ const Auth = () => {
             return;
         }
 
-        const URL = 'http://localhost:5000/auth';
+        const URL = 'https://gsm-mart-chat-app-server.vercel.app/auth';
 
         try {
             const { data: { token, userId, hashedPassword, fullName } } = await axios.post(`${URL}/${isSignup ? 'signup' : 'login'}`, {
